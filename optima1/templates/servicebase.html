@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {%load static%}
+
+<title>{% block title %}  {%endblock%}</title>
+{%block content%}
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Service Details</h1>
+            <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="{% url 'user:home_page'%}">Home</a></li>
+          <li class="current">Service Details</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Page Title -->
+  <section id="service-details" class="service-details section">
+
+    <div class="container">
+
+      <div class="row gy-4">
+  
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="services-list">
+            <a href="{% url 'user:web-details'%}">Web Design</a>
+            <a href="{% url 'user:research-details'%}">RESEARCH</a>
+            <a href="{% url 'user:thesis-details'%}">THESIS SUPPORT</a>
+            <a href="{% url 'user:graphics-details'%}">Graphic Design</a>
+            <a href="{% url 'user:business-details'%}">BUSINESS PLAN WRITING</a>
+            <a href="{% url 'user:assignment-details'%}">ASSIGNMENT HELP</a>
+            <a href="{% url 'user:transcription-details'%}">TRANSCRIPTION</a>
+            <a href="{% url 'user:video-details'%}">VIDEO EDITING</a>
+            <a href="{% url 'user:res_help-details'%}">RESEARCH ASSISTANCE</a>
+            <a href="{% url 'user:programming-details'%}">PROGRAMMING PROJECTS</a>
+            <a href="{% url 'user:wr-ed-details'%}">WRITING, EDITING, AND FORMATTING</a>
+
+          </div>
+
+          <h4>Enim qui eos rerum in delectus</h4>
+          <p style="color: black; font-size: 15px; text-align: center; margin-bottom: 
+    26px;font-family: 'Muli-SemiBold';">Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
+        </div>
+{%block base%}
+
+{%endblock%}
+</main>
+
+
+{%endblock%}

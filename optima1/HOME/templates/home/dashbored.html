@@ -1,0 +1,22 @@
+{% extends 'home/hbase.html' %} {%load static%}
+<!-- partial:index.partial.html -->
+<title>{% block title %} dashboard {%endblock%}</title>
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{%static 'css/dasboard_home.css'%}" />
+{% endblock %} {% block content %}
+<div class="container">
+  <h1>Uploaded Files</h1>
+  <div class="image-list">
+      {% for file in files %}
+          <div class="image-card">
+              
+            <img src="{{ file.image.url }}" alt="{{ file.title }}">
+            <h2>{{ file.title }}</h2>
+            <p>{{ file.description }}</p>
+          </div>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

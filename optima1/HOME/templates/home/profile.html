@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {%load static%}
+<title>{% block title %} User Profile {%endblock%}</title>
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-image-section">
+    <div class="profile-img-wrapper">
+      <img
+        src="{% static 'css/image.png' %}"
+        alt="Profile Photo"
+        class="profile-img"
+      />
+      <div class="edit-icon">
+        <i class="fas fa-camera"></i>
+      </div>
+    </div>
+  </div>
+  <div class="profile-info-section">
+    <div class="profile-header">
+      <h1 class="profile-username">{{ user.username }}</h1>
+      <button class="edit-btn" onclick="enableEditing()">Edit Profile</button>
+    </div>
+    <div class="profile-info">
+      <form method="POST">
+        {% csrf_token %}
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'error' %}
+              <div class="alert-primary" role="alert">
+                {{ message }}</div>
+            {%else%}
+              <div class="alert-secondary" role="alert">
+                {{ message }} 
+              </div>
+
+            {%endif%}
+          {% endfor %}
+        {% endif %}
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value="{{ user.username }}"
+            disabled
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="{{ user.email }}"
+            disabled
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value="user.password"
+            disabled
+          />
+        </div>
+        <button type="submit" class="save-btn" style="display: none">
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  function enableEditing() {
+    document.querySelectorAll(".profile-info input").forEach((input) => {
+      input.disabled = false;
+    });
+    document.querySelector(".save-btn").style.display = "block";
+  }
+</script>
+
+{% endblock %}

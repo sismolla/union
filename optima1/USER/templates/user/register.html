@@ -1,0 +1,93 @@
+{%extends 'base1.html'%} {% load static %}
+<title>{% block title %} signup {%endblock%} | assignment helper</title>
+
+{% block content %}
+<!-- <div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div> -->
+
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Service Details</h1>
+            <p class="mb-0">
+              Odio et unde deleniti. Deserunt numquam exercitationem. Officiis
+              quo odio sint voluptas consequatur ut a odio voluptatem. Sit
+              dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit
+              quaerat ipsum dolorem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="{%url 'user:home_page'%}">Home</a></li>
+          <li class="current">Service Details</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  <!-- End Page Title -->
+
+  <!-- Service Details Section -->
+  <section id="service-details" class="service-details section">
+    <form action="" method="post" class="login_form">
+      {% csrf_token %}
+      <h3>Signup Here</h3>
+      {% if messages %}
+      <div class="alert-primary" role="alert">
+        {% for message in messages %} {{ message }} {% endfor %}
+      </div>
+      {% endif %}
+
+      <label for="username">Username</label>
+      <input
+        type="text"
+        placeholder="Username"
+        name="username"
+        id="username"
+        required
+      />
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        placeholder="Email or Phone"
+        name="email"
+        id="email"
+        required
+      />
+
+      <label for="password1">Password</label>
+      <input
+        type="password"
+        placeholder="Password"
+        id="password1"
+        name="password1"
+        required
+      />
+
+      <label for="password2">Confrom Password</label>
+      <input
+        type="password"
+        placeholder="Confrom Password"
+        id="password2"
+        name="password2"
+        required
+      />
+      <button type="submit">Signup</button>
+
+      <a href="{% url 'user:login' %}">i have already account</a>
+    </form>
+  </section>
+  <!-- /Service Details Section -->
+</main>
+
+{%endblock%}
