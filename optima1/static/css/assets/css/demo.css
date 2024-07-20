@@ -4,7 +4,7 @@
     margin-top: 200px;
     padding: 0;
     box-sizing: border-box;
-    min-height: 100vh;
+    min-height: 70vh;
     font-family: "Poppins", sans-serif;
   }
   
@@ -153,14 +153,14 @@
       gap: 30px;
     }
   }
-  .cols__container .right__col nav ul li a {
+  .cols__container .right__col nav ul li a.active{
     text-transform: uppercase;
-    color: #818181;
+    color: #1d1d1d;
   }
-  .cols__container .right__col nav ul li:nth-child(1) a {
+  /* .cols__container .right__col nav ul li:nth-child(1) a {
     color: #1d1d1d;
     font-weight: 600;
-  }
+  } */
   .cols__container .right__col nav button {
     background: #0091ff;
     color: #fff;

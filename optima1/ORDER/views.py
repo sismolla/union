@@ -33,7 +33,8 @@ def utility(user):
 
     total = total_pending_orders + total_completed_orders 
     
-    return total,total_completed_orders,total_completed_orders
+    return total,total_pending_orders,total_completed_orders
+
 @login_required(login_url='user:login')
 def profile_page(request):
     total,pending,completed = utility(request.user)

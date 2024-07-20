@@ -1,6 +1,8 @@
-{%extends 'order/profile.html'%}
-{%block content2%}
-    <h1>User Orders</h1>
+{% extends 'order/profile.html' %}
+
+{% block content2 %}
+
+    {% if business_plans %}
     <h4>Business Plans</h4>
     <table>
         <thead>
@@ -26,7 +28,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if researches %}
     <h4>Researches</h4>
     <table>
         <thead>
@@ -52,7 +56,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if theses %}
     <h4>Theses</h4>
     <table>
         <thead>
@@ -78,7 +84,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if assignment %}
     <h4>Assignment</h4>
     <table>
         <thead>
@@ -104,7 +112,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if transcriptions %}
     <h4>Transcription</h4>
     <table>
         <thead>
@@ -130,7 +140,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if videos %}
     <h4>Video</h4>
     <table>
         <thead>
@@ -156,7 +168,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if programmings %}
     <h4>Programming</h4>
     <table>
         <thead>
@@ -182,7 +196,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if graphicss %}
     <h4>Graphics</h4>
     <table>
         <thead>
@@ -203,12 +219,14 @@
                 <td>{{ graphics.email }}</td>
                 <td>{{ graphics.title }}</td>
                 <td>{{ graphics.status }}</td>
-                <td>graphics</td>
+                <td>Graphics</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    
+    {% endif %}
+
+    {% if websites %}
     <h4>Website</h4>
     <table>
         <thead>
@@ -229,12 +247,14 @@
                 <td>{{ website.email }}</td>
                 <td>{{ website.title }}</td>
                 <td>{{ website.status }}</td>
-                <td>website</td>
+                <td>Website</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 
+    {% if editings %}
     <h4>Editing</h4>
     <table>
         <thead>
@@ -255,9 +275,11 @@
                 <td>{{ editing.email }}</td>
                 <td>{{ editing.title }}</td>
                 <td>{{ editing.status }}</td>
-                <td>editing</td>
+                <td>Editing</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-{%endblock%}
+    {% endif %}
+
+{% endblock %}

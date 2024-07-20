@@ -1,4 +1,6 @@
 {% extends 'base.html' %}{%load static%}
+{% load active_url %}
+
 <!-- partial:index.partial.html -->
 <title>{% block title %} Profile {%endblock%}</title>
 
@@ -37,10 +39,10 @@
     <div class="right__col">
       <nav class="uls">
            <ul >
-            <li><a href="{%url 'order:profile'%}">how to Order</a></li>
-            <li><a href="{%url 'order:total_order'%}">Ordered</a></li>
-             <li><a href="{%url 'order:completed_orders'%}">Completed</a></li>
-             <li><a href="{%url 'order:pending_orders'%}">Ongoing</a></li>
+            <li><a class="{% is_active request 'order:profile' %}" href="{%url 'order:profile'%}">how to Order</a></li>
+            <li><a class="{% is_active request 'order:total_order' %}" href="{%url 'order:total_order'%}">Ordered</></li>
+             <li><a class="{% is_active request 'order:completed_orders' %}" href="{%url 'order:completed_orders'%}">Completed</a></li>
+             <li><a class="{% is_active request 'order:pending_orders' %}" href="{%url 'order:pending_orders'%}">Ongoing</a></li>
       </ul>
       <a href="#services"><button>Order Now</button></a>
         
