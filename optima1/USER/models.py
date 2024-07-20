@@ -10,3 +10,19 @@ class Contact_us_page(models.Model):
     def __str__(self):
         return self.name
     
+class Review(models.Model):
+    RATINGS = [
+        (1, '1 Star'),
+        (2, '2 Stars'),
+        (3, '3 Stars'),
+        (4, '4 Stars'),
+        (5, '5 Stars'),
+    ]
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    rating = models.PositiveIntegerField(choices=RATINGS)
+    comments = models.TextField()
+
+    def __str__(self):
+        return f'{self.name} - {self.rating} Stars'

@@ -12,7 +12,11 @@ from .views import (Sign_up,home,
                     graphics_details,
                     programming_details,
                     assignment_details,
-                    contact_us)
+                    contact_us,
+                    terms_and_condition,
+                    privacy_policy,
+                    submit_review,
+                    )
 
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
@@ -28,6 +32,13 @@ from django.contrib.auth.views import (
 app_name = 'user'
 
 urlpatterns = [
+    path('privacy_policy/',privacy_policy,name='privacy_policy'),
+    path('terms_and_conditions/',terms_and_condition,name='terms_and_conditions'),
+
+    path('submit_review/', submit_review, name='submit_review'),
+    # path('thank_you/', thank_you, name='thank_you'),
+
+
     path('login/',Sign_in,name='login' ),
     path('signup/', Sign_up, name='signup'),
     path('dashboard/', home, name='home_page'),

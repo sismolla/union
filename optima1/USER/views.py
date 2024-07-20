@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core.validators import validate_email
 from .form import Contact_form
+from .models import Review
 from django.urls import reverse_lazy
 # from django.views.decorators.csrf import csrf_exempt
 # from django.views.decorators.http import require_POST
@@ -160,3 +161,20 @@ def logout_page(request):
     if request.method == 'POST':
         aut_logout(request)
     return redirect(reverse_lazy('user:home_page'))
+
+def terms_and_condition(request):
+    return render(request, 'terms_and_conditions.html')
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
+def submit_review(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        rating = request.POST.get('rating')
+        comment = request.POST.get('comments')
+        Review.objects.create(name=name, email=email, rating=rating, comments=comment)
+
+    
+    return render(request, 'submit_review.html')

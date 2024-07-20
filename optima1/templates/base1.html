@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{%load static%}
 <!-- partial:index.partial.html -->
-<title>{% block title %} UNION {%endblock%}</title>
+<title>{% block title %}  {%endblock%}</title>
 
 {% block content %}
 <!-- Hero Section -->
@@ -14,7 +14,7 @@
         <p>your trusted partner in academic and professional success, offering personalized support for assignments, research, web development, projects, and more.</p>
         <div class="d-flex">
           <a href="{%url 'user:login'%}" class="btn-get-started">Get Started</a>
-          <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          <a href="{%static 'css/assets/img/Student Helper Translation Service.mp4'%}" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
         </div>
       </div>
       <div class="col-lg-5 order-1 order-lg-2">

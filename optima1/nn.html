@@ -3,72 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Info and Services</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>User Review Form - UNION</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+        }
+        .review-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .review-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .review-form label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .review-form input[type="text"], 
+        .review-form input[type="email"], 
+        .review-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .review-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .rating-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .rating-container label {
+            margin-right: 10px;
+        }
+        .star {
+            font-size: 4vh;
+            cursor: pointer;
+        }
+        .one {
+            color: rgb(255, 0, 0);
+        }
+        .two {
+            color: rgb(255, 106, 0);
+        }
+        .three {
+            color: rgb(251, 255, 120);
+        }
+        .four {
+            color: rgb(255, 255, 0);
+        }
+        .five {
+            color: rgb(24, 159, 14);
+        }
+        .review-submit-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .review-submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
-    <div class="row">
-        <div class="col-lg-7 mx-auto text-white text-center pt-5">
-            <h1 class="display-4">Bootstrap 4 profile page</h1>
-            <p class="lead mb-0">Easily create a profile widget using bootstrap 4.</p>
-            <p class="lead">Snippet by <a href="https://bootstrapious.com/snippets" class="text-white">
-                <u>Bootstrapious</u></a>
-            </p>
-        </div>
-    </div><!-- End -->
-    
-    
-    <div class="row py-5 px-4">
-        <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
-    
-            <!-- Profile widget -->
-            <div class="bg-white shadow rounded overflow-hidden">
-                <div class="px-4 pt-0 pb-4 bg-dark">
-                    <div class="media align-items-end profile-header">
-                        <div class="profile mr-3"><img src="https://bootstrapious.com/i/snippets/sn-profile/teacher.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Edit profile</a></div>
-                        <div class="media-body mb-5 text-white">
-                            <h4 class="mt-0 mb-0">Manuella Tarly</h4>
-                            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>San Farcisco</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="bg-light p-4 d-flex justify-content-end text-center">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">241</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Photos</small>
-                        </li>
-                        <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">84K</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Followers</small>
-                        </li>
-                    </ul>
-                </div>
-    
-                <div class="py-4 px-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-3.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                        <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-4.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                        <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-5.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                        <div class="col-lg-6 pl-lg-1"><img src="https://bootstrapious.com/i/snippets/sn-profile/img-6.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                    </div>
-                    <div class="py-4">
-                        <h5 class="mb-3">Recent posts</h5>
-                        <div class="p-4 bg-light rounded shadow-sm">
-                            <p class="font-italic mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                            <ul class="list-inline small text-muted mt-3 mb-0">
-                                <li class="list-inline-item"><i class="fa fa-comment-o mr-2"></i>12 Comments</li>
-                                <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>200 Likes</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- End profile widget -->
-    
-        </div>
+    <div class="review-container">
+        <h1>Submit Your Review</h1>
+        <form method="post" action="{% url 'submit_review' %}" class="review-form" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                <input type="text" id="id_name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                <input type="email" id="id_email" name="email" required>
+            </div>
+
+            <div class="form-group rating-container">
+                <label for="id_rating">Rating:</label>
+                <span onclick="setRating(1)" class="star">★</span>
+                <span onclick="setRating(2)" class="star">★</span>
+                <span onclick="setRating(3)" class="star">★</span>
+                <span onclick="setRating(4)" class="star">★</span>
+                <span onclick="setRating(5)" class="star">★</span>
+                <input type="hidden" id="id_rating" name="rating">
+            </div>
+
+            <div class="form-group">
+                <label for="id_comments">Comments:</label>
+                <textarea id="id_comments" name="comments" placeholder="Your feedback..." required></textarea>
+            </div>
+
+            <button type="submit" class="review-submit-btn">Submit Review</button>
+        </form>
     </div>
+
+    <script>
+        let stars = document.getElementsByClassName("star");
+
+        function setRating(rating) {
+            let cls = "";
+            switch(rating) {
+                case 1: cls = "one"; break;
+                case 2: cls = "two"; break;
+                case 3: cls = "three"; break;
+                case 4: cls = "four"; break;
+                case 5: cls = "five"; break;
+            }
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].className = "star " + (i < rating ? cls : "");
+            }
+            document.getElementById('id_rating').value = rating;
+        }
+
+        function validateForm() {
+            let rating = document.getElementById('id_rating').value;
+            if (rating === "" || isNaN(rating)) {
+                alert("Please select a rating.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

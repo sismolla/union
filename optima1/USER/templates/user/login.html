@@ -1,9 +1,6 @@
 {%extends 'base.html'%} {% load static %}
 <title>{% block title %}login {%endblock%} | assignment helper</title>
-<!-- {% block stylesheets %} {{ block.super }}
-  <!-- Additional CSS files for this page -->
-<!-- <link rel="stylesheet" href="{% static 'css/login.css' %}" /> -->
-<!-- {% endblock %}  -->
+
 
 {%block content%}
 
@@ -37,35 +34,33 @@
   <!-- End Page Title -->
 
   <!-- Service Details Section -->
-  <section id="service-details" class="service-details section">
-    <form class="login_form"  method="post">
-      <h3>Login Here</h3>
-      {% csrf_token %} {% if messages %}
+  <section id="service-details" class="service-details-section">
+    <form class="login-form" method="post">
+      <h3 class="form-title">Login Here</h3>
+      {% csrf_token %}
+      {% if messages %}
       <div class="alert-primary" role="alert">
-        {% for message in messages %} {{ message }} {% endfor %}
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
       </div>
       {% endif %}
-      <label for="username">Username</label>
-      <input
-        type="text"
-        placeholder="Enter Username"
-        id="username"
-        name="username"
-      />
+      <label for="username" class="form-label">Username</label>
+      <input type="text" placeholder="Enter Username" id="username" name="username" class="form-input" />
 
-      <label for="password">Password</label>
-      <input type="password" placeholder="Password" id="password" name="pass" />
-      {%if request.GET.next %}
-      <input type="hidden" name="next" value="{{request.GET.next}}" />
-      {%endif%}
-      <button type="submit">Log In</button>
+      <label for="password" class="form-label">Password</label>
+      <input type="password" placeholder="Password" id="password" name="password" class="form-input" />
+      {% if request.GET.next %}
+      <input type="hidden" name="next" value="{{ request.GET.next }}" />
+      {% endif %}
+      <button type="submit" class="submit-button">Log In</button>
       <!-- <input type="button" value="" />  -->
       <!-- <div class="social">
-        <div class="go"><i class="fab fa-google"></i> Google</div>
-        <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+        <div class="google"><i class="fab fa-google"></i> Google</div>
+        <div class="facebook"><i class="fab fa-facebook"></i> Facebook</div>
       </div> -->
-      <a href="{% url 'user:signup' %}">Create a account</a>
-      <a href="{% url 'user:password-reset' %}">forgot password</a>
+      <a href="{% url 'user:signup' %}" class="form-link">Create an account</a>
+      <a href="{% url 'user:password-reset' %}" class="form-link">Forgot password</a>
     </form>
   </section>
   <!-- /Service Details Section -->
