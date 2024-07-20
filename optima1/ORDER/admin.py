@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Research,Thesis,GraphicsDesignSubmission,ProgrammingProjectSubmission,VideoEditingSubmission,Transcription,Business_plan,Assignment
+from .models import editing,Website_project,Research,Thesis,GraphicsDesignSubmission,ProgrammingProjectSubmission,VideoEditingSubmission,Transcription,Business_plan,Assignment
 # Register your models here.
 
 
@@ -12,3 +12,5 @@ admin.site.register(VideoEditingSubmission)
 admin.site.register(Transcription)
 admin.site.register(Assignment)
 admin.site.register(Business_plan)
+admin.site.register(Website_project)
+admin.site.register(editing)

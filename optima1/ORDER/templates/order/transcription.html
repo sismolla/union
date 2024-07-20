@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-<title>{% block title %}FormWizard_v1 {% endblock %} | Transcription Submission</title>
+<title>{% block title %}Transcription {% endblock %} </title>
 
 {% block content %}
 <div class="wrapper">
@@ -89,6 +89,11 @@
               <input name="deadline" type="datetime-local" placeholder="Deadline" class="form-control">
             </div>
           </div
+          <div class="form-row">
+            <div class="form-holder">
+              <input name="file" type="file" placeholder="upload file" class="form-control">
+            </div>
+          </div>
         </div>
     </div>
   </section>
@@ -102,7 +107,7 @@
       </div>
       <div class="form-content">
         <div class="form-header">
-          <h3>Thesis Form</h3>
+          <h3>Transcription Submission Form</h3>
         </div>
         <p>Send an optional message</p>
         <div class="form-row">

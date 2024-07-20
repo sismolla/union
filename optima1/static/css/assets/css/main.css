@@ -1702,6 +1702,7 @@ section,
   cursor: pointer;
   display: flex;
   align-items: flex-start;
+  color: var(--accent-color);
 }
 
 .faq .faq-container .faq-item h3 .num {
@@ -1723,6 +1724,7 @@ section,
 
 .faq .faq-container .faq-item .faq-content p {
   margin-bottom: 0;
+  color: black;
   overflow: hidden;
 }
 
@@ -2437,6 +2439,7 @@ section,
   font-size: 14px;
 }
 
+
 .blog-details .meta-bottom .tags li {
   display: inline-block;
 }
@@ -2795,4 +2798,10 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+
+.center-card{
+  padding-top: 100px;
+  padding-bottom: 200px;
+  padding-left: 50px;
 }

@@ -8,7 +8,7 @@ app_name = 'home'
 urlpatterns = [
     path('home/',homepage,name='home' ),
     path('hdashboard/',dashboard,name='hdashboard' ),
-    path('profile/', profile, name='profile'),
+    # path('profile/', profile, name='profile'),
     path('logout/', logout, name='logout'),
 
     ]

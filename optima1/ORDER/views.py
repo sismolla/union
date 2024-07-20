@@ -1,12 +1,144 @@
 from django.shortcuts import render,redirect,HttpResponse
-from .models import (Research,Thesis,GraphicsDesignSubmission,ProgrammingProjectSubmission,VideoEditingSubmission,Transcription,Assignment,Business_plan)
+from .models import (editing,Website_project,Research,Thesis,GraphicsDesignSubmission,ProgrammingProjectSubmission,VideoEditingSubmission,Transcription,Assignment,Business_plan)
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 # Create your views here.
 @login_required(login_url='user:login')
+def profile_page(request):
+    graphics = GraphicsDesignSubmission.objects.filter(user_name=request.user,status='completed').count()
+    programming = ProgrammingProjectSubmission.objects.filter(user_name=request.user,status='completed').count()
+    video = VideoEditingSubmission.objects.filter(user_name=request.user,status='completed').count()
+    transcription = Transcription.objects.filter(user_name=request.user,status='completed').count()
+    assignment = Assignment.objects.filter(user_name=request.user,status='completed').count()
+    business_plans = Business_plan.objects.filter(user_name=request.user,status='completed').count()
+    researches = Research.objects.filter(user_name=request.user,status='completed').count()
+    theses = Thesis.objects.filter(user_name=request.user,status='completed').count()
+    website = Website_project.objects.filter(user_name=request.user,status='completed').count()
+    edit = editing.objects.filter(user_name=request.user,status='completed').count()
+
+    total_completed_orders = graphics + programming + video + assignment + business_plans + researches + theses  + transcription + website + edit
+
+    tgraphics = GraphicsDesignSubmission.objects.filter(user_name=request.user,status='pending').count()
+    tprogramming = ProgrammingProjectSubmission.objects.filter(user_name=request.user,status='pending').count()
+    tvideo = VideoEditingSubmission.objects.filter(user_name=request.user,status='pending').count()
+    ttranscription = Transcription.objects.filter(user_name=request.user,status='pending').count()
+    tassignment = Assignment.objects.filter(user_name=request.user,status='pending').count()
+    tbusiness_plans = Business_plan.objects.filter(user_name=request.user,status='pending').count()
+    tresearches = Research.objects.filter(user_name=request.user,status='pending').count()
+    ttheses = Thesis.objects.filter(user_name=request.user,status='pending').count()
+    twebsite = Website_project.objects.filter(user_name=request.user,status='pending').count()
+    tedit = editing.objects.filter(user_name=request.user,status='pending').count()
+
+    total_pending_orders = tgraphics + tprogramming + tvideo + tassignment + tbusiness_plans + tresearches + ttheses  + ttranscription + twebsite + tedit
+
+    total = total_pending_orders + total_completed_orders 
+    context = {
+        
+        'total_completed': total_completed_orders,
+        'total_pending': total_pending_orders,
+        'total': total,
+        
+    }
+    
+    return render(request,('order/profile.html'),context)
+
+@login_required
+def user_orders(request):
+    # Retrieve orders for the logged-in user
+    graphics = GraphicsDesignSubmission.objects.filter(user_name=request.user)
+    programming = ProgrammingProjectSubmission.objects.filter(user_name=request.user)
+    video = VideoEditingSubmission.objects.filter(user_name=request.user)
+    transcription = Transcription.objects.filter(user_name=request.user)
+    assignment = Assignment.objects.filter(user_name=request.user)
+    business_plans = Business_plan.objects.filter(user_name=request.user)
+    researches = Research.objects.filter(user_name=request.user)
+    theses = Thesis.objects.filter(user_name=request.user)
+    web = Website_project.objects.filter(user_name=request.user)
+    edit = editing.objects.filter(user_name=request.user)
+
+    context = {
+        
+        'business_plans': business_plans,
+        'researches': researches,
+        'theses': theses,
+        'assignment':assignment,
+        'transcriptions':transcription,
+        'videos':video,
+        'programmings':programming,
+        'graphicss':graphics,
+        'websites':web,
+        'editings':edit
+    }
+
+    return render(request, 'order/ordres.html', context)
+
+@login_required(login_url='user:login')
+def completed_orders(request):
+    # Retrieve orders for the logged-in user
+    graphics = GraphicsDesignSubmission.objects.filter(user_name=request.user,status='completed')
+    programming = ProgrammingProjectSubmission.objects.filter(user_name=request.user,status='completed')
+    video = VideoEditingSubmission.objects.filter(user_name=request.user,status='completed')
+    transcription = Transcription.objects.filter(user_name=request.user,status='completed')
+    assignment = Assignment.objects.filter(user_name=request.user,status='completed')
+    business_plans = Business_plan.objects.filter(user_name=request.user,status='completed')
+    researches = Research.objects.filter(user_name=request.user,status='completed')
+    theses = Thesis.objects.filter(user_name=request.user,status='completed')
+    web = Website_project.objects.filter(user_name=request.user,status='completed')
+    edit = editing.objects.filter(user_name=request.user,status='completed')
+    
+    context = {
+        
+        'business_plans': business_plans,
+        'researches': researches,
+        'theses': theses,
+        'assignment':assignment,
+        'transcriptions':transcription,
+        'videos':video,
+        'programmings':programming,
+        'graphicss':graphics,
+        'websites':web,
+        'editings':edit
+    }
+
+    return render(request, 'order/completed_ordres.html', context)
+
+@login_required(login_url='user:login')
+def pending_orders(request):
+    # Retrieve orders for the logged-in user
+    graphics = GraphicsDesignSubmission.objects.filter(user_name=request.user,status='pending')
+    programming = ProgrammingProjectSubmission.objects.filter(user_name=request.user,status='pending')
+    video = VideoEditingSubmission.objects.filter(user_name=request.user,status='pending')
+    transcription = Transcription.objects.filter(user_name=request.user,status='pending')
+    assignment = Assignment.objects.filter(user_name=request.user,status='pending')
+    business_plans = Business_plan.objects.filter(user_name=request.user,status='pending')
+    researches = Research.objects.filter(user_name=request.user,status='pending')
+    theses = Thesis.objects.filter(user_name=request.user,status='pending')
+    web = Website_project.objects.filter(user_name=request.user,status='pending')
+    edit = editing.objects.filter(user_name=request.user,status='pending')
+
+    context = {
+        
+        'business_plans': business_plans,
+        'researches': researches,
+        'theses': theses,
+        'assignment':assignment,
+        'transcriptions':transcription,
+        'videos':video,
+        'programmings':programming,
+        'graphicss':graphics,
+        'websites':web,
+        'editings':edit
+    }
+
+    return render(request, 'order/pending_ordres.html', context)
+
+
+
+@login_required(login_url='user:login')
 def create_research(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
@@ -20,7 +152,7 @@ def create_research(request):
         accept_terms = request.POST.get('accept_terms')== 'on'
 
 
-        Research.objects.create(firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
+        Research.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
    
         return redirect('order:order')  # Replace with your success URL
 
@@ -29,6 +161,7 @@ def create_research(request):
 @login_required(login_url='user:login')
 def create_thesis(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
@@ -42,7 +175,7 @@ def create_thesis(request):
         accept_terms = request.POST.get('accept_terms')== 'on'
 
 
-        Thesis.objects.create(firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
+        Thesis.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
    
         return redirect('order:thesis')  # Replace with your success URL
 
@@ -52,6 +185,7 @@ def create_thesis(request):
 @login_required(login_url='user:login')
 def graphics_design_submission(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
@@ -67,6 +201,7 @@ def graphics_design_submission(request):
 
         # Save the submission to the database
         submission = GraphicsDesignSubmission(
+            user_name=user_name,
             firstname=firstname,
             lastname=lastname,
             email=email,
@@ -89,6 +224,7 @@ def graphics_design_submission(request):
 @login_required(login_url=('user:login'))
 def programming_project_submission(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
@@ -104,6 +240,7 @@ def programming_project_submission(request):
 
         # Save the submission to the database
         submission = ProgrammingProjectSubmission(
+            user_name = user_name,
             firstname=firstname,
             lastname=lastname,
             email=email,
@@ -127,6 +264,7 @@ def programming_project_submission(request):
 
 def video_editing_submission(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
@@ -142,6 +280,7 @@ def video_editing_submission(request):
 
         # Save the submission to the database
         submission = VideoEditingSubmission(
+            user_name=user_name,
             firstname=firstname,
             lastname=lastname,
             email=email,
@@ -163,11 +302,13 @@ def video_editing_submission(request):
 
 def transcription(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
         phone_number = request.POST.get('phone_number')
         gender = request.POST.get('gender')
+        transcribed_file = request.POST.get('file')
         accept_terms = request.POST.get('accept_terms')
         title = request.POST.get('title')
         source_language = request.POST.get('source_language')
@@ -176,6 +317,7 @@ def transcription(request):
 
         # Save the submission to the database
         submission = Transcription(
+            user_name=user_name,
             firstname=firstname,
             lastname=lastname,
             email=email,
@@ -185,7 +327,8 @@ def transcription(request):
             title=title,
             source_language=source_language,
             target_language=target_language,
-            deadline=deadline
+            deadline=deadline,
+            transcribed_file = transcribed_file
         )
         submission.save()
         return redirect('order:transcription')  # Replace with your success URL
@@ -197,6 +340,7 @@ def transcription(request):
 @login_required(login_url='user:login')
 def assignment(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
@@ -210,7 +354,7 @@ def assignment(request):
         accept_terms = request.POST.get('accept_terms')== 'on'
 
 
-        Assignment.objects.create(firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
+        Assignment.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
    
         return redirect('order:assignment')  # Replace with your success URL
 
@@ -219,6 +363,7 @@ def assignment(request):
 @login_required(login_url='user:login')
 def business_plan(request):
     if request.method == 'POST':
+        user_name = request.user
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         email = request.POST.get('email')
@@ -232,22 +377,51 @@ def business_plan(request):
         accept_terms = request.POST.get('accept_terms')== 'on'
 
 
-        Business_plan.objects.create(firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
+        Business_plan.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
    
         return redirect('order:business-plan')  # Replace with your success URL
 
     return render(request, 'order/business_plan.html')
-# def order_tabel(request):
-#     pending = Order.objects.filter(user=request.user,status = 'pending').count()
-#     complete = Order.objects.filter(user=request.user,status = 'completed').count()
-#     all_orders = Order.objects.filter(user=request.user).all().count()
+def website_project(request):
+    if request.method == 'POST':
+        user_name = request.user
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        phone_number = request.POST.get('phone_number')
+        gender = request.POST.get('gender')
+        titles = request.POST.get('title')
+        web_type = request.POST.get('web-type')
+        framework = request.POST.get('framework')
+        deadline = request.POST.get('deadline')
+        website_file = request.FILES.get('web_file')
+        description = request.POST.get('description')
+        accept_terms = request.POST.get('accept_terms')== 'on'
 
-#     context = {
 
-#         'pending': pending,
-#         'completed':complete,
-#         'orders':all_orders
-#     }
-#     # Filter orders submitted by the currently logged-in user
-#     orders = Order.objects.filter(user=request.user)
-#     return render(request, 'order/order_projects.html', {'orders': orders,'context': context})
+        Website_project.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,website_type = web_type, gender=gender,website_title=titles,framework=framework,deadline=deadline,website_file=website_file,description=description,accept_terms=accept_terms)
+   
+        return redirect('order:profile')  # Replace with your success URL
+
+    return render(request, 'order/web_design.html')
+
+
+def Writing_editing_project(request):
+    if request.method == 'POST':
+        user_name = request.user
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        phone_number = request.POST.get('phone_number')
+        gender = request.POST.get('gender')
+        deadline = request.POST.get('deadline')
+        edited_file = request.FILES.get('edited_file')
+        description = request.POST.get('description')
+        accept_terms = request.POST.get('accept_terms')== 'on'
+
+
+        editing.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number, gender=gender,deadline=deadline,edited_file=edited_file,description=description,accept_terms=accept_terms)
+   
+        return redirect('order:profile')  # Replace with your success URL
+
+    return render(request, 'order/writhing_editing.html')

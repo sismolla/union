@@ -5,7 +5,8 @@ class Contact_us_page(models.Model):
     email = models.EmailField(null=False, blank=False)
     Subject = models.TextField(null=False, blank=False)
     message = models.TextField(null=False, blank=False)
-    date = models.DateTimeField(auto_created=True)
+    # date = models.DateTimeField(auto_created=True, blank=False)
     
     def __str__(self):
         return self.name
+    

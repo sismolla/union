@@ -48,7 +48,7 @@ def Sign_in(request):
                 
                 except:
                     return redirect(reverse_lazy('order:'+ next))
-            return redirect(reverse_lazy('home:hdashboard'))
+            return redirect(reverse_lazy('order:profile'))
     return render (request,'user/login.html')
 
 def Sign_up(request):
@@ -155,7 +155,7 @@ def contact_us(request):
     # else:
     #     pass
 
-    return redirect('user:home_page',{'form':form})
+    return redirect('user:home_page')
 def logout_page(request):
     if request.method == 'POST':
         aut_logout(request)

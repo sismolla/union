@@ -24,11 +24,19 @@
   <link href="{%static 'css/assets/vendor/aos/aos.css'%}" rel="stylesheet">
   <link href="{%static 'css/assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
   <link href="{%static 'css/assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
-  <link rel="stylesheet" href="{%static 'css/profile_page.css'%}" />
+
+  <!--for the profile page-->
+  <link rel="stylesheet" href="{%static 'css/assets/css/style.css'%}">
+  <!-- Demo CSS (No need to include it into your project) -->
+  <link rel="stylesheet" href="{%static 'css/assets/css/demo.css'%}">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+
 
   <!-- Main CSS File -->
   <link href="{%static 'css/assets/css/main.css'%}" rel="stylesheet">
   <link href="{%static 'css/login.css'%}" rel="stylesheet">
+  <!--for password reset-->
+  <link rel="stylesheet" href="{% static 'css/confirm1.css'%}">
 
   <!-- MATERIAL DESIGN ICONIC FONT -->
   <link rel="stylesheet" href="{%static 'css/fonts/material-design-iconic-font/css/material-design-iconic-font.css'%}">
@@ -70,20 +78,24 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
+        {%if user.is_authenticated%}
+        <a href="{%url 'order:profile'%}" class="logo d-flex align-items-center">
+        {%else%}
         <a href="/" class="logo d-flex align-items-center">
+        {%endif%}
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
           <h1 class="sitename">UNION</h1>
           <span>.</span>
         </a>
-
+        
         <nav id="navmenu" class="navmenu">
+          {%if user.is_authenticated%}
           <ul>
-            <li><a href="#hero" class="active">Home<br></a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#team">Team</a></li>
+            <li><a href="#profile">profile</a></li>
+            <li><a href="#services" class="active">Services<br></a></li>
+            <li><a href="{%url 'user:logout'%}">logout</a></li>
+
             <!-- <li><a href="blog.html">Blog</a></li>
             <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
@@ -102,9 +114,21 @@
                 <li><a href="#">Dropdown 4</a></li>
               </ul>
             </li> -->
-            <li><a href="#contact">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          {%else%}
+          <ul>
+            <li><a href="#hero" class="active">Home<br></a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">contact</a></li>
+
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
+          {%endif%}
         </nav>
 
       </div>

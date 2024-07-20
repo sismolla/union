@@ -46,7 +46,7 @@ urlpatterns = [
     path('pro_details/', programming_details, name='programming-details'),
 
 
-    # path('contactus/', contact_us, name='contactus'),
+    path('contactus/', contact_us, name='contactus'),
     path('logout/',LogoutView.as_view(),name='logout'),
 
     

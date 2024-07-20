@@ -140,7 +140,7 @@ h3 {
   letter-spacing: 7px;
   padding: 5px 15px;
   display: block;
-  border: 1px solid #dad8e4;
+  /* border: 1px solid #dad8e4; */
   margin-bottom: 75px; }
 
   p {
