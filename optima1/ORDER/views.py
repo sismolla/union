@@ -59,6 +59,7 @@ def user_orders(request):
     theses = Thesis.objects.filter(user_name=request.user)
     web = Website_project.objects.filter(user_name=request.user)
     edit = editing.objects.filter(user_name=request.user)
+    
     total,pending,completed = utility(request.user)
 
     context = {

@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {%load static%}
+{% load active_url %}
 
 <title>{% block title %}  {%endblock%}</title>
 {%block content%}
@@ -35,19 +36,19 @@
 
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="services-list">
-            <a href="{% url 'user:web-details'%}">Web Design</a>
-            <a href="{% url 'user:research-details'%}">RESEARCH</a>
-            <a href="{% url 'user:thesis-details'%}">THESIS SUPPORT</a>
-            <a href="{% url 'user:graphics-details'%}">Graphic Design</a>
-            <a href="{% url 'user:business-details'%}">BUSINESS PLAN WRITING</a>
-            <a href="{% url 'user:assignment-details'%}">ASSIGNMENT HELP</a>
-            <a href="{% url 'user:transcription-details'%}">TRANSCRIPTION</a>
-            <a href="{% url 'user:video-details'%}">VIDEO EDITING</a>
-            <a href="{% url 'user:res_help-details'%}">RESEARCH ASSISTANCE</a>
-            <a href="{% url 'user:programming-details'%}">PROGRAMMING PROJECTS</a>
-            <a href="{% url 'user:wr-ed-details'%}">WRITING, EDITING, AND FORMATTING</a>
+            <a class="{% is_active request 'user:web-details' %}" href="{% url 'user:web-details' %}">Web Design</a>
+            <a class="{% is_active request 'user:research-details' %}" href="{% url 'user:research-details' %}">RESEARCH</a>
+            <a class="{% is_active request 'user:thesis-details' %}" href="{% url 'user:thesis-details' %}">THESIS SUPPORT</a>
+            <a class="{% is_active request 'user:graphics-details' %}" href="{% url 'user:graphics-details' %}">Graphic Design</a>
+            <a class="{% is_active request 'user:business-details' %}" href="{% url 'user:business-details' %}">BUSINESS PLAN WRITING</a>
+            <a class="{% is_active request 'user:assignment-details' %}" href="{% url 'user:assignment-details' %}">ASSIGNMENT HELP</a>
+            <a class="{% is_active request 'user:transcription-details' %}" href="{% url 'user:transcription-details' %}">TRANSCRIPTION</a>
+            <a class="{% is_active request 'user:video-details' %}" href="{% url 'user:video-details' %}">VIDEO EDITING</a>
+            <a class="{% is_active request 'user:res_help-details' %}" href="{% url 'user:res_help-details' %}">RESEARCH ASSISTANCE</a>
+            <a class="{% is_active request 'user:programming-details' %}" href="{% url 'user:programming-details' %}">PROGRAMMING PROJECTS</a>
+            <a class="{% is_active request 'user:wr-ed-details' %}" href="{% url 'user:wr-ed-details' %}">WRITING, EDITING, AND FORMATTING</a>
+        </div>
 
-          </div>
 
           <h4>Enim qui eos rerum in delectus</h4>
           <p style="color: black; font-size: 15px; text-align: center; margin-bottom: 
