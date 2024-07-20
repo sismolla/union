@@ -4,44 +4,47 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 # Create your views here.
-@login_required(login_url='user:login')
-def profile_page(request):
-    graphics = GraphicsDesignSubmission.objects.filter(user_name=request.user,status='completed').count()
-    programming = ProgrammingProjectSubmission.objects.filter(user_name=request.user,status='completed').count()
-    video = VideoEditingSubmission.objects.filter(user_name=request.user,status='completed').count()
-    transcription = Transcription.objects.filter(user_name=request.user,status='completed').count()
-    assignment = Assignment.objects.filter(user_name=request.user,status='completed').count()
-    business_plans = Business_plan.objects.filter(user_name=request.user,status='completed').count()
-    researches = Research.objects.filter(user_name=request.user,status='completed').count()
-    theses = Thesis.objects.filter(user_name=request.user,status='completed').count()
-    website = Website_project.objects.filter(user_name=request.user,status='completed').count()
-    edit = editing.objects.filter(user_name=request.user,status='completed').count()
+def utility(user):
+    graphics = GraphicsDesignSubmission.objects.filter(user_name=user,status='completed').count()
+    programming = ProgrammingProjectSubmission.objects.filter(user_name=user,status='completed').count()
+    video = VideoEditingSubmission.objects.filter(user_name=user,status='completed').count()
+    transcription = Transcription.objects.filter(user_name=user,status='completed').count()
+    assignment = Assignment.objects.filter(user_name=user,status='completed').count()
+    business_plans = Business_plan.objects.filter(user_name=user,status='completed').count()
+    researches = Research.objects.filter(user_name=user,status='completed').count()
+    theses = Thesis.objects.filter(user_name=user,status='completed').count()
+    website = Website_project.objects.filter(user_name=user,status='completed').count()
+    edit = editing.objects.filter(user_name=user,status='completed').count()
 
     total_completed_orders = graphics + programming + video + assignment + business_plans + researches + theses  + transcription + website + edit
 
-    tgraphics = GraphicsDesignSubmission.objects.filter(user_name=request.user,status='pending').count()
-    tprogramming = ProgrammingProjectSubmission.objects.filter(user_name=request.user,status='pending').count()
-    tvideo = VideoEditingSubmission.objects.filter(user_name=request.user,status='pending').count()
-    ttranscription = Transcription.objects.filter(user_name=request.user,status='pending').count()
-    tassignment = Assignment.objects.filter(user_name=request.user,status='pending').count()
-    tbusiness_plans = Business_plan.objects.filter(user_name=request.user,status='pending').count()
-    tresearches = Research.objects.filter(user_name=request.user,status='pending').count()
-    ttheses = Thesis.objects.filter(user_name=request.user,status='pending').count()
-    twebsite = Website_project.objects.filter(user_name=request.user,status='pending').count()
-    tedit = editing.objects.filter(user_name=request.user,status='pending').count()
+    tgraphics = GraphicsDesignSubmission.objects.filter(user_name=user,status='pending').count()
+    tprogramming = ProgrammingProjectSubmission.objects.filter(user_name=user,status='pending').count()
+    tvideo = VideoEditingSubmission.objects.filter(user_name=user,status='pending').count()
+    ttranscription = Transcription.objects.filter(user_name=user,status='pending').count()
+    tassignment = Assignment.objects.filter(user_name=user,status='pending').count()
+    tbusiness_plans = Business_plan.objects.filter(user_name=user,status='pending').count()
+    tresearches = Research.objects.filter(user_name=user,status='pending').count()
+    ttheses = Thesis.objects.filter(user_name=user,status='pending').count()
+    twebsite = Website_project.objects.filter(user_name=user,status='pending').count()
+    tedit = editing.objects.filter(user_name=user,status='pending').count()
 
     total_pending_orders = tgraphics + tprogramming + tvideo + tassignment + tbusiness_plans + tresearches + ttheses  + ttranscription + twebsite + tedit
 
     total = total_pending_orders + total_completed_orders 
-    context = {
-        
-        'total_completed': total_completed_orders,
-        'total_pending': total_pending_orders,
-        'total': total,
-        
-    }
     
-    return render(request,('order/profile.html'),context)
+    return total,total_completed_orders,total_completed_orders
+@login_required(login_url='user:login')
+def profile_page(request):
+    total,pending,completed = utility(request.user)
+    context = {
+        'total_completed':completed,
+        'total_pending':pending,
+        'total':total,
+
+    }
+    return render(request,'order/profile.html',context)
+
 
 @login_required
 def user_orders(request):
@@ -56,9 +59,12 @@ def user_orders(request):
     theses = Thesis.objects.filter(user_name=request.user)
     web = Website_project.objects.filter(user_name=request.user)
     edit = editing.objects.filter(user_name=request.user)
+    total,pending,completed = utility(request.user)
 
     context = {
-        
+        'total_completed':completed,
+        'total_pending':pending,
+        'total':total,
         'business_plans': business_plans,
         'researches': researches,
         'theses': theses,
@@ -86,9 +92,12 @@ def completed_orders(request):
     theses = Thesis.objects.filter(user_name=request.user,status='completed')
     web = Website_project.objects.filter(user_name=request.user,status='completed')
     edit = editing.objects.filter(user_name=request.user,status='completed')
-    
+    total,pending,completed = utility(request.user)
+
     context = {
-        
+        'total_completed':completed,
+        'total_pending':pending,
+        'total':total,
         'business_plans': business_plans,
         'researches': researches,
         'theses': theses,
@@ -116,9 +125,12 @@ def pending_orders(request):
     theses = Thesis.objects.filter(user_name=request.user,status='pending')
     web = Website_project.objects.filter(user_name=request.user,status='pending')
     edit = editing.objects.filter(user_name=request.user,status='pending')
+    total,pending,completed = utility(request.user)
 
     context = {
-        
+        'total_completed':completed,
+        'total_pending':pending,
+        'total':total,
         'business_plans': business_plans,
         'researches': researches,
         'theses': theses,
