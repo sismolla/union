@@ -9,10 +9,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -20,10 +20,17 @@
             <tr>
                 <td>{{ business_plan.firstname }}</td>
                 <td>{{ business_plan.lastname }}</td>
-                <td>{{ business_plan.email }}</td>
-                <td>{{ business_plan.title }}</td>
+                <td>{{ business_plan.deadline }}</td>
                 <td>{{ business_plan.status }}</td>
+                
                 <td>Business Plan</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ business_plan.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -37,10 +44,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -48,10 +55,17 @@
             <tr>
                 <td>{{ research.firstname }}</td>
                 <td>{{ research.lastname }}</td>
-                <td>{{ research.email }}</td>
-                <td>{{ research.title }}</td>
+                <td>{{ research.deadline }}</td>
                 <td>{{ research.status }}</td>
+                
                 <td>Research</td>
+            <td>
+                    {% if research.status == "completed" %}
+                        <a href="{{ research.abstract.url }}" download="">click here</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -65,10 +79,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -76,10 +90,17 @@
             <tr>
                 <td>{{ thesis.firstname }}</td>
                 <td>{{ thesis.lastname }}</td>
-                <td>{{ thesis.email }}</td>
-                <td>{{ thesis.title }}</td>
+                <td>{{ thesis.deadline }}</td>
                 <td>{{ thesis.status }}</td>
+                
                 <td>Thesis</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ thesis.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -93,10 +114,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -104,10 +125,17 @@
             <tr>
                 <td>{{ assignment.firstname }}</td>
                 <td>{{ assignment.lastname }}</td>
-                <td>{{ assignment.email }}</td>
-                <td>{{ assignment.title }}</td>
+                <td>{{ assignment.deadline }}</td>
                 <td>{{ assignment.status }}</td>
+                
                 <td>Assignment</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ assignment.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -121,10 +149,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -132,10 +160,17 @@
             <tr>
                 <td>{{ transcription.firstname }}</td>
                 <td>{{ transcription.lastname }}</td>
-                <td>{{ transcription.email }}</td>
-                <td>{{ transcription.title }}</td>
+                <td>{{ transcription.deadline }}</td>
                 <td>{{ transcription.status }}</td>
+                
                 <td>Transcription</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ transcription.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -149,10 +184,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -160,10 +195,17 @@
             <tr>
                 <td>{{ video.firstname }}</td>
                 <td>{{ video.lastname }}</td>
-                <td>{{ video.email }}</td>
-                <td>{{ video.title }}</td>
+                <td>{{ video.deadline }}</td>
                 <td>{{ video.status }}</td>
+                
                 <td>Video</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ video.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -177,10 +219,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -188,10 +230,17 @@
             <tr>
                 <td>{{ programming.firstname }}</td>
                 <td>{{ programming.lastname }}</td>
-                <td>{{ programming.email }}</td>
-                <td>{{ programming.title }}</td>
+                <td>{{ programming.deadline }}</td>
                 <td>{{ programming.status }}</td>
+                
                 <td>Programming</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ programming.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -205,10 +254,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -216,10 +265,17 @@
             <tr>
                 <td>{{ graphics.firstname }}</td>
                 <td>{{ graphics.lastname }}</td>
-                <td>{{ graphics.email }}</td>
-                <td>{{ graphics.title }}</td>
+                <td>{{ graphics.deadline }}</td>
                 <td>{{ graphics.status }}</td>
+                
                 <td>Graphics</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ graphics.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -233,10 +289,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -244,10 +300,17 @@
             <tr>
                 <td>{{ website.firstname }}</td>
                 <td>{{ website.lastname }}</td>
-                <td>{{ website.email }}</td>
-                <td>{{ website.title }}</td>
+                <td>{{ website.deadline }}</td>
                 <td>{{ website.status }}</td>
+                
                 <td>Website</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ website.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -261,10 +324,10 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Title</th>
+                <th>Deadline</th>
                 <th>Status</th>
                 <th>Type</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
@@ -272,10 +335,16 @@
             <tr>
                 <td>{{ editing.firstname }}</td>
                 <td>{{ editing.lastname }}</td>
-                <td>{{ editing.email }}</td>
-                <td>{{ editing.title }}</td>
+                <td>{{ editing.deadline }}</td>
                 <td>{{ editing.status }}</td>
                 <td>Editing</td>
+            <td>
+                    {% if editing.status == "completed" %}
+                        <a href="{{ editing.abstract.url }}" download>Download File</a>
+                    {% else %}
+                        The file will appear when it is completed.
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>

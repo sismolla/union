@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 def Sign_in(request):
     if request.method == 'POST':
         username_or_email = request.POST.get('username')
-        password = request.POST.get('pass')
+        password = request.POST.get('password')
         
 
         # Check if the input is an email address
@@ -37,6 +37,7 @@ def Sign_in(request):
 
         if authenticated_user is None:
             # Display an error message if authentication fails (invalid password)
+            print(username_or_email,password)
             messages.error(request, "Invalid password")
             return redirect(reverse_lazy('user:login'))
         else:
