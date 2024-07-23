@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'USER',
-    'HOME',
     'ORDER',
     'chat',
 ]
@@ -69,7 +68,7 @@ MIDDLEWARE = [
 
 
 ROOT_URLCONF = 'myproject.urls'
-LOGOUT_REDIRECT_URL = 'user:home_page'
+LOGOUT_REDIRECT_URL = 'base1'
 
 TEMPLATES = [
     {

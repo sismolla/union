@@ -46,7 +46,7 @@ def Sign_in(request):
             if 'next' in request.POST:
                 next = request.POST.get('next').strip('/')
                 try:
-                    return redirect(reverse_lazy('home:'+ next))
+                    return redirect(reverse_lazy('user:'+ next))
                 
                 except:
                     return redirect(reverse_lazy('order:'+ next))
@@ -69,7 +69,7 @@ def Sign_up(request):
                 return redirect(reverse_lazy('user:signup'))
             if len(pass1) <8:
             # Display an error message if password less than 8
-                messages.error(request, "password is too short")
+                messages.error(request, "password is too short please use strong password")
                 return redirect(reverse_lazy('user:signup'))
             if validate_email(email):
                 messages.info(request, "invalid email")
@@ -89,12 +89,9 @@ def Sign_up(request):
             messages.info(request, "Account created Successfully!")
             return redirect(reverse_lazy('user:login'))
         else:
-            messages.info(request,'please make sure to confirm the password correctly')
+            messages.info(request,'please make sure you confirm the password correctly')
             return redirect(reverse_lazy('user:signup'))
     return render (request,'user/register.html')
-
-def home(request):
-    return render(request,('base1.html'))
 
 def portfolio_detail(request):
     return render(request,'portfolio-details.html')
@@ -157,11 +154,12 @@ def contact_us(request):
     # else:
     #     pass
 
-    return redirect('user:home_page')
+    return redirect('base1')
+
 def logout_page(request):
     if request.method == 'POST':
         aut_logout(request)
-    return redirect(reverse_lazy('user:home_page'))
+    return redirect(reverse_lazy('base1'))
 
 def terms_and_condition(request):
     return render(request, 'terms_and_conditions.html')

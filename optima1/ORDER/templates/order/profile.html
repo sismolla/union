@@ -19,7 +19,7 @@
     <p>{{request.user.email}}</p>
     <p>welcome to UNION</p>
 
-    <ul class="about">
+    <ul class="profile_about">
       <li><span>{{total}}</span>ordered services</li>
               <li><span>{{total_completed}}</span>completed</li>
               <li><span>{{total_pending}}</span>ongoing</li>
@@ -44,7 +44,8 @@
              <li><a class="{% is_active request 'order:completed_orders' %}" href="{%url 'order:completed_orders'%}">Completed</a></li>
              <li><a class="{% is_active request 'order:pending_orders' %}" href="{%url 'order:pending_orders'%}">Ongoing</a></li>
       </ul>
-      <a href="#services"><button>Order Now</button></a>
+      <!-- <a href="#services"><button>Get in touch</button></a> -->
+      <a href="{% url 'chat:chat' %}"><button>Order Now</button></a>
         
       </nav>
       

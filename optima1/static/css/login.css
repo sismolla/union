@@ -76,7 +76,9 @@
     .alert-primary {
         color: red;
     }
-
+    .alert-success{
+        color: green;
+    }
     .form-link {
         display: inline-block;
         padding-top: 15px;

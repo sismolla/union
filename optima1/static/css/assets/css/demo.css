@@ -12,7 +12,7 @@
     display: block !important;
   }
   
-  .about {
+  .profile_about {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -89,22 +89,22 @@
     color: #818181;
     margin: 0;
   }
-  .cols__container .left__col .about {
+  .cols__container .left__col .profile_about {
     justify-content: space-between;
     position: relative;
     margin: 35px 0;
   }
-  .cols__container .left__col .about li {
+  .cols__container .left__col .profile_about li {
     display: flex;
     flex-direction: column;
     color: #818181;
     font-size: 0.9rem;
   }
-  .cols__container .left__col .about li span {
+  .cols__container .left__col .profile_about li span {
     color: #1d1d1d;
     font-weight: 600;
   }
-  .cols__container .left__col .about:after {
+  .cols__container .left__col .profile_about:after {
     position: absolute;
     content: "";
     bottom: -16px;
@@ -162,7 +162,7 @@
     font-weight: 600;
   } */
   .cols__container .right__col nav button {
-    background: #0091ff;
+    background: #008374;
     color: #fff;
     border: none;
     padding: 10px 25px;

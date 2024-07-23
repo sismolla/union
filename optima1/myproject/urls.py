@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_page,name='base1'),
     path('', include(('USER.urls','USER') ,'user1')),
-    path('', include(('HOME.urls','HOME') ,'home')),
+    # path('', include(('HOME.urls','HOME') ,'home')),
     path('', include(('ORDER.urls','ORDER') ,'order')),
     path('', include(('chat.urls','chat') ,'chat')),
 

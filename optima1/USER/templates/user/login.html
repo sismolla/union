@@ -25,8 +25,8 @@
     <nav class="breadcrumbs">
       <div class="container">
         <ol>
-          <li><a href="{%url 'user:home_page'%}">Home</a></li>
-          <li class="current">Service Details</li>
+          <li><a href="{%url 'base1'%}">Home</a></li>
+          <li class="current">login</li>
         </ol>
       </div>
     </nav>
@@ -39,11 +39,17 @@
       <h3 class="form-title">Login Here</h3>
       {% csrf_token %}
       {% if messages %}
-      <div class="alert-primary" role="alert">
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-      </div>
+          {% for message in messages %}
+              {% if "Account created Successfully!" in message %}
+                  <div class="alert alert-success" role="alert">
+                      {{ message }}
+                  </div>
+              {% else %}
+                  <div class="alert alert-primary" role="alert">
+                      {{ message }}
+                  </div>
+              {% endif %}
+          {% endfor %}
       {% endif %}
       <label for="username" class="form-label">Username</label>
       <input type="text" placeholder="Enter Username" id="username" name="username" class="form-input" />
@@ -54,16 +60,10 @@
       <input type="hidden" name="next" value="{{ request.GET.next }}" />
       {% endif %}
       <button type="submit" class="submit-button">Log In</button>
-      <!-- <input type="button" value="" />  -->
-      <!-- <div class="social">
-        <div class="google"><i class="fab fa-google"></i> Google</div>
-        <div class="facebook"><i class="fab fa-facebook"></i> Facebook</div>
-      </div> -->
       <a href="{% url 'user:signup' %}" class="form-link">Create an account</a>
       <a href="{% url 'user:password-reset' %}" class="form-link">Forgot password</a>
     </form>
   </section>
-  <!-- /Service Details Section -->
 </main>
 
 {%endblock%}
