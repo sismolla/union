@@ -1,36 +1,24 @@
-{% extends 'servicebase.html' %} {%load static%}
+{% extends 'servicebase.html' %}
+{% load static %}
 
-<title>{% block title %} Programming {%endblock%}</title>
-{%block base%}
+<title>{% block title %} Programming Project {% endblock %}</title>
+{% block base %}
 
   <!-- Service Details Section -->
-
   <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-    <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
-    <h3>Temporibus et in vero dicta aut eius lidero plastis trand lined voluptas dolorem ut voluptas</h3>
-    <p style="color: black; font-size: 20px; text-align: center; margin-bottom: 
-    26px;font-family: 'Muli-SemiBold';">
-      Blanditiis voluptate odit ex error ea sed officiis deserunt. Cupiditate non consequatur et doloremque consequuntur. Accusantium labore reprehenderit error temporibus saepe perferendis fuga doloribus vero. Qui omnis quo sit. Dolorem architecto eum et quos deleniti officia qui.
+    <img src="{% static 'assets/img/programming-project.jpg' %}" alt="" class="img-fluid services-img">
+    <h3>Expert Programming Project Assistance</h3>
+    <p style="color: black; font-size: 20px; text-align: center; margin-bottom: 26px; font-family: 'Muli-SemiBold';">
+      Our programming project services offer expert assistance to help you with all your coding needs. We provide tailored solutions to ensure your projects are completed successfully.
     </p>
     <ul>
-      <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
-      <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt voluptatibus.</span></li>
-      <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
+      <li><i class="bi bi-check-circle"></i> <span>Custom programming solutions.</span></li>
+      <li><i class="bi bi-check-circle"></i> <span>Debugging and optimization.</span></li>
+      <li><i class="bi bi-check-circle"></i> <span>Project planning and development.</span></li>
     </ul>
-    <p style="color: black; font-size: 20px; text-align: center; margin-bottom: 
-    26px;font-family: 'Muli-SemiBold';">
-      Est reprehenderit voluptatem necessitatibus asperiores neque sed ea illo. Deleniti quam sequi optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
-    </p>
-    <p style="color: black; font-size: 20px; text-align: center; margin-bottom: 
-    26px;font-family: 'Muli-SemiBold';">
-      Sunt rem odit accusantium omnis perspiciatis officia. Laboriosam aut consequuntur recusandae mollitia doloremque est architecto cupiditate ullam. Quia est ut occaecati fuga. Distinctio ex repellendus eveniet velit sint quia sapiente cumque. Et ipsa perferendis ut nihil. Laboriosam vel voluptates tenetur nostrum. Eaque iusto cupiditate et totam et quia dolorum in. Sunt molestiae ipsum at consequatur vero. Architecto ut pariatur autem ad non cumque nesciunt qui maxime. Sunt eum quia impedit dolore alias explicabo ea.
+    <p style="color: black; font-size: 20px; text-align: center; margin-bottom: 26px; font-family: 'Muli-SemiBold';">
+      Trust our experienced programmers to deliver high-quality code and solutions that meet your project requirements.
     </p>
   </div>
 
-</div>
-
-</div>
-
-</section><!-- /Service Details Section -->
-
-{%endblock%}
+{% endblock %}
