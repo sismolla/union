@@ -39,17 +39,11 @@
       <h3 class="form-title">Login Here</h3>
       {% csrf_token %}
       {% if messages %}
-          {% for message in messages %}
-              {% if "Account created Successfully!" in message %}
-                  <div class="alert alert-success" role="alert">
-                      {{ message }}
-                  </div>
-              {% else %}
-                  <div class="alert alert-primary" role="alert">
-                      {{ message }}
-                  </div>
-              {% endif %}
-          {% endfor %}
+        <ul class="messages" id="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
       {% endif %}
       <label for="username" class="form-label">Username</label>
       <input type="text" placeholder="Enter Username" id="username" name="username" class="form-input" />

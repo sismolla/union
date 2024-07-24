@@ -65,14 +65,14 @@ def Sign_up(request):
             
             if user.exists():
                 # Display an information message if the username is taken
-                messages.info(request, "Username already taken!")
+                messages.error(request, "Username already taken!")
                 return redirect(reverse_lazy('user:signup'))
             if len(pass1) <8:
             # Display an error message if password less than 8
                 messages.error(request, "password is too short please use strong password")
                 return redirect(reverse_lazy('user:signup'))
             if validate_email(email):
-                messages.info(request, "invalid email")
+                messages.error(request, "invalid email")
                 return redirect(reverse_lazy('user:signup'))
             
             # Create a new User object with the provided information
@@ -86,10 +86,10 @@ def Sign_up(request):
             user.save()
         
             # Display an information message indicating successful account creation
-            messages.info(request, "Account created Successfully!")
+            messages.success(request, "Account created Successfully! please login")
             return redirect(reverse_lazy('user:login'))
         else:
-            messages.info(request,'please make sure you confirm the password correctly')
+            messages.error(request,'please make sure you confirm the password correctly')
             return redirect(reverse_lazy('user:signup'))
     return render (request,'user/register.html')
 
@@ -138,7 +138,12 @@ def contact_us(request):
         form = Contact_form(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request,'your information has been sent we will contact you soon')
+            return redirect('/#contact')
 
+        else:messages.error(request,'please enter the correct information')
+        return redirect('/#contact')
+        
     else:
         form = Contact_form()
     # if request.method == 'POST':
@@ -154,8 +159,7 @@ def contact_us(request):
     # else:
     #     pass
 
-    return redirect('base1')
-
+    
 def logout_page(request):
     if request.method == 'POST':
         aut_logout(request)

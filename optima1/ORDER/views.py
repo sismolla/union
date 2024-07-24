@@ -1,7 +1,8 @@
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect
 from .models import (editing,Website_project,Research,Thesis,GraphicsDesignSubmission,ProgrammingProjectSubmission,VideoEditingSubmission,Transcription,Assignment,Business_plan)
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse_lazy
 
 # Create your views here.
 def utility(user):
@@ -165,10 +166,15 @@ def create_research(request):
         description = request.POST.get('description')
         accept_terms = request.POST.get('accept_terms')== 'on'
 
-
-        Research.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
-   
-        return redirect('order:order')  # Replace with your success URL
+        if user_name and firstname and lastname and email and phone_number and gender and titles and number_of_pages and deadline and abstract and description and accept_terms:
+            Research.objects.create(user_name=user_name, firstname=firstname, lastname=lastname,email=email,phone_number=phone_number,gender=gender,title=titles,number_of_pages=number_of_pages,deadline=deadline,abstract=abstract,description=description,accept_terms=accept_terms)
+            messages.success(request,'order submitted successfully you can see it in the dashboard ')
+            
+            return redirect(reverse_lazy('order:order'))
+        else:
+            messages.error(request,'please check the form again and check every thing is filled correctly!')
+            return redirect(reverse_lazy('order:order'))
+        # Replace with your success URL
 
     return render(request, 'order/research.html')
 

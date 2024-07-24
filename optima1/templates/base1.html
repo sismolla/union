@@ -987,6 +987,13 @@
 
       <div class="col-lg-8">
         <form method="post" action="{%url 'user:contactus'%}" class="php-email-form" data-aos="fade" data-aos-delay="100">
+          {% if messages %}
+        <ul class="messages" id="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
           {%csrf_token %}
           {{form}}
           <div class="row gy-4">

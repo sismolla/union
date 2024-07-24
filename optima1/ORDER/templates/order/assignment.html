@@ -18,6 +18,13 @@
           <div class="form-header">
             <h3>Assignment form</h3>
           </div>
+          {% if messages %}
+        <ul class="messages" id="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+          {% endif %}
           <p>Please fill with your details</p>
           <div class="form-row">
             <div class="form-holder">
