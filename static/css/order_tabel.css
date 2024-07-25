@@ -1,0 +1,135 @@
+.body {
+    overflow-y: scroll;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+.my-4{
+    color: #0c4237;
+    padding: 1em;
+    text-align: center;
+    background-color:white;
+}
+
+.table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-left:15%
+}
+
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.table th {
+    background-color: #d8deea;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+} 
+.quick-stats {
+    display: flex;
+    gap: 20px;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-left: 15%;
+}
+.quick-stats div {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin-top:10%;
+    text-align: center;
+}
+.quick-stats div p {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+.quick-stats div h3 {
+    margin: 10px 0 0;
+    font-size: 1.5em;
+    color: #1e3a8a;
+} 
+
+/* Custom styles for the All Orders page
+/* .table-responsive {
+    overflow-x: auto;
+}
+.my-4{
+    color: #0c4237;
+    padding: 1em;
+    text-align: center;
+    background-color:white;
+}
+.table {
+    margin-left: 15%;
+    width: 70%;
+    color: #0c4237;
+    border-spacing: 0px;
+    background-color: white;
+}
+
+.table th, .table td {
+    padding: 22px;
+    border: 2px solid #e2e8f0; /* Adjust border color 
+}
+
+.table th {
+    background-color: #d8deea; /* Adjust header background color 
+    font-weight: bold;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f4f8; /* Adjust even row background color 
+}
+
+.table tbody tr:hover {
+    background-color: #e2e8f0; /* Adjust hover row background color 
+}
+
+.quick-stats {
+    display: flex;
+    gap: 20px;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-left: 15%;
+}
+.quick-stats div {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin-top:10%;
+    text-align: center;
+}
+.quick-stats div p {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+.quick-stats div h3 {
+    margin: 10px 0 0;
+    font-size: 1.5em;
+    color: #1e3a8a;
+} 

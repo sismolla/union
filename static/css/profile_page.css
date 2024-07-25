@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 50%; /* Full height of the viewport */
+    width: 80%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-left:100px;
+    margin-top: 100px;
+    background: white;
+}
+.alert-primary{
+    color:red;
+}
+.alert-secondary{
+    color:green;
+}
+
+.profile-image-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0c4237ff;
+    padding: 20px;
+    position: relative;
+}
+
+.profile-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 4px solid white;
+    
+}
+
+.edit-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    color: white;
+    display: none;
+}
+
+.profile-img-wrapper:hover .edit-icon {
+    display: block;
+}
+
+.profile-info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.profile-username {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.edit-btn {
+    background: #47b2e4;
+    color: white;
+    border: none;
+    width:150px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.edit-btn:hover {
+    background: #35a477;
+}
+
+.profile-info {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.form-group input:disabled {
+    background: #e9e9e9;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.save-btn {
+    background: #35a477;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+.save-btn:hover {
+    background: #47b2e4;
+}

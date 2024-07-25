@@ -1,0 +1,208 @@
+{% extends 'base.html' %}{%load static%}
+{% load active_url %}
+
+<!-- partial:index.partial.html -->
+<title>{% block title %} Profile {%endblock%}</title>
+
+{% block content %}
+<section id="profile">
+
+
+    <div id="cols__container1" class="cols__container">
+      <div class="left__col">
+              <div class="img__container">
+    <img src="{% static 'css/image.png' %}" alt="Alexandra Smith">
+      <span></span>
+    </div>
+    
+    <h2>{{request.user.username}}</h2>
+    <p>{{request.user.email}}</p>
+    <p>welcome to UNION</p>
+
+    <ul class="profile_about">
+      <li><span>{{total}}</span>ordered services</li>
+              <li><span>{{total_completed}}</span>completed</li>
+              <li><span>{{total_pending}}</span>ongoing</li>
+    </ul>
+    
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla. </p>
+      
+        <ul class="about">
+        <li><i class="fab fa-twitter"></i></li>
+    <i class="fab fa-pinterest"></i>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-dribbble"></i>
+      </ul>
+    </div>
+    </div>
+    <div class="right__col">
+      <nav class="uls">
+           <ul >
+            <li><a class="{% is_active request 'order:profile' %}" href="{%url 'order:profile'%}">how to Order</a></li>
+            <li><a class="{% is_active request 'order:total_order' %}" href="{%url 'order:total_order'%}">Ordered</></li>
+             <li><a class="{% is_active request 'order:completed_orders' %}" href="{%url 'order:completed_orders'%}">Completed</a></li>
+             <li><a class="{% is_active request 'order:pending_orders' %}" href="{%url 'order:pending_orders'%}">Ongoing</a></li>
+      </ul>
+      <!-- <a href="#services"><button>Get in touch</button></a> -->
+      <a href="{% url 'chat:chat' %}"><button>Order Now</button></a>
+        
+      </nav>
+      
+      <div >
+          {%block content2%}
+          <p>this is to teach how to order</p>
+          {%endblock%}
+      </div>
+    
+    </div>
+    
+  </section>
+  <!-- Services Section -->
+  <section id="services" class="services section">
+  
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Order Services</h2>
+      <p>At UNION, we offer a comprehensive range of services to support students in their academic and professional journeys. Our goal is to provide high-quality assistance tailored to your needs. Our services include:</p>
+    </div><!-- End Section Title -->
+  
+    <div class="container">
+  
+      <div class="row gy-4">
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-activity"></i>
+            </div>
+            <h3>Research</h3>
+            <p>Thorough and detailed research services for your academic projects and papers.</p>
+            <a href="{% url 'order:order'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-broadcast"></i>
+            </div>
+            <h3>Thesis Support</h3>
+            <p>Comprehensive support through the second phase of your thesis development.</p>
+            <a href="{% url 'order:thesis'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-easel"></i>
+            </div>
+            <h3>Business Plan Writing</h3>
+            <p>Expert assistance in crafting professional business plans.</p>
+            <a href="{% url 'order:business-plan'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-bounding-box-circles"></i>
+            </div>
+            <h3>Assignment Help</h3>
+            <p>Reliable help with your assignments to ensure high-quality submissions.</p>
+            <a href="{% url 'order:assignment'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-calendar4-week"></i>
+            </div>
+            <h3>Graphic Design</h3>
+            <p>Creative graphic design solutions for your projects.</p>
+            <a href="{% url 'order:graphics-design'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-chat-square-text"></i>
+            </div>
+            <h3>Transcription</h3>
+            <p>Accurate transcription services for your audio and video files.</p>
+            <a href="{% url 'order:transcription'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-play-circle"></i>
+            </div>
+            <h3>Video Editing</h3>
+            <p>Professional video editing to enhance your multimedia projects.</p>
+            <a href="{% url 'order:video-project'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- End Service Item -->
+         
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>Custom web development services to meet your specific needs.</p>
+            <a href="{% url 'order:website-project'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-gear-fill"></i>
+            </div>
+            <h3>Programming Projects</h3>
+            <p>Assistance with programming projects to help you succeed in your coursework.</p>
+            <a href="{% url 'order:program-project'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+    
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1000">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-pencil"></i>
+            </div>
+            <h3>Writing, Editing, and Formatting</h3>
+            <p>Professional writing, editing, and formatting services to polish your work.</p>
+            <a href="{% url 'order:editing-project'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        
+        <!-- End Service Item -->
+  
+  
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1100">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-search"></i>
+            </div>
+            <h3>Research Assistance</h3>
+            <p>Dedicated research assistance for your academic endeavors.</p>
+            <a href="{%url 'user:res_help-details'%}" class="readmore stretched-link">Order Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- End Service Item -->
+    
+      </div>
+    
+    </div>
+    </section>
+
+    {%endblock%}
